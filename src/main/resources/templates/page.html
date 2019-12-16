@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://.wwwthymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Editor.md examples</title>
+    <base th:href="@{/}">
+    <link rel="stylesheet" href="editormd/css/editormd.css"/>
+    <link rel="stylesheet" href="editormd/css/editormd.preview.min.css" />
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+</head>
+<body>
+<div id="test-editormd-view">
+    <textarea id="append-test">
+```javascript
+ $(function(){
+     alert("你好);
+  })
+```
+> Markdown增强版中比较有名的有Markdown Extra、MultiMarkdown、 Maruku等。这些衍生版本要么基于工具，如~~Pandoc~~，Pandao；要么基于网站，如GitHub和Wikipedia，在语法上基本兼容，但在一些语法和渲染效果上有改动。
+
+    </textarea>
+</div>
+<script src="editormd/lib/marked.min.js"></script>
+<script src="editormd/lib/prettify.min.js"></script>
+<script src="editormd/lib/raphael.min.js"></script>
+<script src="editormd/lib/underscore.min.js"></script>
+<script src="editormd/lib/sequence-diagram.min.js"></script>
+<script src="editormd/lib/flowchart.min.js"></script>
+<script src="editormd/lib/jquery.flowchart.min.js"></script>
+<script src="editormd/editormd.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var testEditormdView
+        testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+            htmlDecode      : "style,script,iframe",  // you can filter tags decode
+            emoji           : true,
+            taskList        : true,
+            tex             : true,  // 默认不解析
+            flowChart       : true,  // 默认不解析
+            sequenceDiagram : true,  // 默认不解析
+        });
+    });
+</script>
+</body>
+</html>

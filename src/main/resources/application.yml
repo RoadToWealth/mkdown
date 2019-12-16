@@ -1,0 +1,14 @@
+server:
+  port: 8801
+  servlet:
+    context-path: /mkdown
+
+
+spring:
+  thymeleaf:
+    cache: false
+    enaled: true
+    mode: HTML5
+    encoding: UTF-8
+    prefix: classpath:/templates/
+    suffix: .html
